@@ -104,8 +104,6 @@
 
 - (void)resetSubviews
 {
-    [self setBackgroundColor:[UIColor blackColor]];
-
     [self.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
     
     self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.frame), CGRectGetHeight(self.frame))];
@@ -141,7 +139,7 @@
     [self addSubview:self.bottomBorder];
     
     // width for left and right overlay views
-    self.overlayWidth =  CGRectGetWidth(self.frame) - (self.minLength * self.widthPerSecond);
+    self.overlayWidth = (CGRectGetWidth(self.frame) * 2) - (self.minLength * self.widthPerSecond);
 
     // add left overlay view
     self.leftOverlayView = [[ICGHitTestView alloc] initWithFrame:CGRectMake(self.thumbWidth - self.overlayWidth, 0, self.overlayWidth, CGRectGetHeight(self.frameView.frame))];
