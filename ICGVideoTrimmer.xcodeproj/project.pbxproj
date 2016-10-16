@@ -12,6 +12,7 @@
 		2CE63A101A74C43500B804F2 /* ICGVideoTrimmerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE63A0D1A74C43500B804F2 /* ICGVideoTrimmerView.m */; };
 		2CEFE5D41A6BA4A300592ABF /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CEFE5D31A6BA4A300592ABF /* AVFoundation.framework */; };
 		2CEFE5D61A6C164B00592ABF /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CEFE5D51A6C164B00592ABF /* MobileCoreServices.framework */; };
+		C963DB091DB425B200A22990 /* ICGHitTestView.m in Sources */ = {isa = PBXBuildFile; fileRef = C963DB081DB425B200A22990 /* ICGHitTestView.m */; };
 		DE4F1F581A67C9BB00478F77 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4F1F571A67C9BB00478F77 /* main.m */; };
 		DE4F1F5B1A67C9BB00478F77 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4F1F5A1A67C9BB00478F77 /* AppDelegate.m */; };
 		DE4F1F5E1A67C9BB00478F77 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4F1F5D1A67C9BB00478F77 /* ViewController.m */; };
@@ -41,6 +42,8 @@
 		2CE63A0D1A74C43500B804F2 /* ICGVideoTrimmerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICGVideoTrimmerView.m; sourceTree = "<group>"; };
 		2CEFE5D31A6BA4A300592ABF /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		2CEFE5D51A6C164B00592ABF /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		C963DB071DB425B200A22990 /* ICGHitTestView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICGHitTestView.h; sourceTree = "<group>"; };
+		C963DB081DB425B200A22990 /* ICGHitTestView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICGHitTestView.m; sourceTree = "<group>"; };
 		DE4F1F521A67C9BB00478F77 /* ICGVideoTrimmer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ICGVideoTrimmer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE4F1F561A67C9BB00478F77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DE4F1F571A67C9BB00478F77 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -79,6 +82,8 @@
 		2CE63A071A74C43500B804F2 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				C963DB071DB425B200A22990 /* ICGHitTestView.h */,
+				C963DB081DB425B200A22990 /* ICGHitTestView.m */,
 				2CE63A081A74C43500B804F2 /* ICGRulerView.h */,
 				2CE63A091A74C43500B804F2 /* ICGRulerView.m */,
 				2CE63A0A1A74C43500B804F2 /* ICGThumbView.h */,
@@ -258,6 +263,7 @@
 				DE4F1F5E1A67C9BB00478F77 /* ViewController.m in Sources */,
 				2CE63A0E1A74C43500B804F2 /* ICGRulerView.m in Sources */,
 				DE4F1F5B1A67C9BB00478F77 /* AppDelegate.m in Sources */,
+				C963DB091DB425B200A22990 /* ICGHitTestView.m in Sources */,
 				DE4F1F581A67C9BB00478F77 /* main.m in Sources */,
 				2CE63A101A74C43500B804F2 /* ICGVideoTrimmerView.m in Sources */,
 			);
