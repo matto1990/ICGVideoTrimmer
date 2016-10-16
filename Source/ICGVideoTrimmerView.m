@@ -104,8 +104,6 @@
 
 - (void)resetSubviews
 {
-    self.clipsToBounds = YES;
-
     [self setBackgroundColor:[UIColor blackColor]];
 
     [self.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
@@ -114,6 +112,7 @@
     [self addSubview:self.scrollView];
     [self.scrollView setDelegate:self];
     [self.scrollView setShowsHorizontalScrollIndicator:NO];
+    self.scrollView.clipsToBounds = NO;
     
     self.contentView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.scrollView.frame), CGRectGetHeight(self.scrollView.frame))];
     [self.scrollView setContentSize:self.contentView.frame.size];
@@ -154,7 +153,7 @@
         self.leftThumbView = [[ICGThumbView alloc] initWithFrame:leftThumbFrame color:self.themeColor right:NO];
     }
     
-    self.trackerView = [[UIView alloc] initWithFrame:CGRectMake(self.thumbWidth, -5, 3, CGRectGetHeight(self.frameView.frame) + 10)];
+    self.trackerView = [[UIView alloc] initWithFrame:CGRectMake(self.thumbWidth, 0, 3, CGRectGetHeight(self.frameView.frame))];
     self.trackerView.backgroundColor = self.trackerColor;
     self.trackerView.layer.masksToBounds = true;
     self.trackerView.layer.cornerRadius = 2;
