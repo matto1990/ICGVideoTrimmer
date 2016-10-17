@@ -129,6 +129,12 @@
         [self.contentView addSubview:rulerView];
     }
     
+    self.trackerView = [[UIView alloc] initWithFrame:CGRectMake(self.thumbWidth, 0, 3, CGRectGetHeight(self.frameView.frame))];
+    self.trackerView.backgroundColor = self.trackerColor;
+    self.trackerView.layer.masksToBounds = true;
+    self.trackerView.layer.cornerRadius = 2;
+    [self addSubview:self.trackerView];
+    
     // add borders
     self.topBorder = [[UIView alloc] init];
     [self.topBorder setBackgroundColor:self.themeColor];
@@ -140,7 +146,7 @@
     
     // width for left and right overlay views
     self.overlayWidth = (CGRectGetWidth(self.frame) * 2) - (self.minLength * self.widthPerSecond);
-
+    
     // add left overlay view
     self.leftOverlayView = [[ICGHitTestView alloc] initWithFrame:CGRectMake(self.thumbWidth - self.overlayWidth, 0, self.overlayWidth, CGRectGetHeight(self.frameView.frame))];
     self.leftOverlayView.hitTestEdgeInsets = UIEdgeInsetsMake(0, 0, 0, -60);
@@ -151,20 +157,14 @@
         self.leftThumbView = [[ICGThumbView alloc] initWithFrame:leftThumbFrame color:self.themeColor right:NO];
     }
     
-    self.trackerView = [[UIView alloc] initWithFrame:CGRectMake(self.thumbWidth, 0, 3, CGRectGetHeight(self.frameView.frame))];
-    self.trackerView.backgroundColor = self.trackerColor;
-    self.trackerView.layer.masksToBounds = true;
-    self.trackerView.layer.cornerRadius = 2;
-    [self addSubview:self.trackerView];
-
     [self.leftThumbView.layer setMasksToBounds:YES];
     [self.leftOverlayView addSubview:self.leftThumbView];
     [self.leftOverlayView setUserInteractionEnabled:YES];
     UIPanGestureRecognizer *leftPanGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(moveLeftOverlayView:)];
     [self.leftOverlayView addGestureRecognizer:leftPanGestureRecognizer];
-    [self.leftOverlayView setBackgroundColor:[UIColor colorWithWhite:0 alpha:0.8]];
+    [self.leftOverlayView setBackgroundColor:[UIColor colorWithWhite:0 alpha:(self.showsOverlayViews) ? 0.8 : 0]];
     [self addSubview:self.leftOverlayView];
-
+    
     // add right overlay view
     CGFloat rightViewFrameX = CGRectGetWidth(self.frameView.frame) < CGRectGetWidth(self.frame) ? CGRectGetMaxX(self.frameView.frame) : CGRectGetWidth(self.frame) - self.thumbWidth;
     self.rightOverlayView = [[ICGHitTestView alloc] initWithFrame:CGRectMake(rightViewFrameX, 0, self.overlayWidth, CGRectGetHeight(self.frameView.frame))];
@@ -179,7 +179,7 @@
     [self.rightOverlayView setUserInteractionEnabled:YES];
     UIPanGestureRecognizer *rightPanGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(moveRightOverlayView:)];
     [self.rightOverlayView addGestureRecognizer:rightPanGestureRecognizer];
-    [self.rightOverlayView setBackgroundColor:[UIColor colorWithWhite:0 alpha:0.8]];
+    [self.rightOverlayView setBackgroundColor:[UIColor colorWithWhite:0 alpha:(self.showsOverlayViews) ? 0.8 : 0]];
     [self addSubview:self.rightOverlayView];
     
     [self updateBorderFrames];
@@ -268,7 +268,7 @@
 }
 
 - (void)seekToTime:(CGFloat) time
-{    
+{
     CGFloat posToMove = time * self.widthPerSecond + self.thumbWidth - self.scrollView.contentOffset.x;
     
     CGRect trackerFrame = self.trackerView.frame;

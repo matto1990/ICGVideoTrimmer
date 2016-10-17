@@ -30,6 +30,9 @@ NS_ASSUME_NONNULL_BEGIN
 // Show ruler view on the trimmer view or not
 @property (assign, nonatomic) BOOL showsRulerView;
 
+// Show overlay views on the trimmer view or not
+@property (assign, nonatomic) BOOL showsOverlayViews;
+
 // Customize color for tracker
 @property (assign, nonatomic) UIColor *trackerColor;
 
